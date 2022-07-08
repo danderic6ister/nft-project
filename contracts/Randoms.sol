@@ -126,7 +126,7 @@ contract Randoms is ERC721, ERC721Enumerable, Ownable {
             "On addition of this amount you are about to mint, Your total minted would exceed the max of 3 in private sale ,consider reducing the amount."
         );
         require(
-            totalSupply() < maxSupply - amountForAIRDROPS,
+            totalSupply() + _mintAmount <= maxSupply - amountForAIRDROPS,
             "The max number of nfts  for this private phase has been minted."
         );
 
@@ -162,7 +162,7 @@ contract Randoms is ERC721, ERC721Enumerable, Ownable {
             "On addition of this amount you are about to mint, Your total minted would exceed the max of 2 in public sale ,consider reducing the amount."
         );
         require(
-            totalSupply() < maxSupply - amountForAIRDROPS,
+            totalSupply() + _mintAmount <=  maxSupply - amountForAIRDROPS,
             "The max number of nfts  for this public phase has been minted"
         );
         uint256 id = totalSupply();
